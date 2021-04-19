@@ -12,7 +12,7 @@ activity_labels <- separate(activity_labels, c("V1"), into = c("Number", "Activi
 # features
 features <- scan(file=paste0(data_dir,"features.txt"), character(), sep = "\n" )
 
-## test
+## function that creates a tidy data set for both the train and test datasets
 create_data_set <- function(type){
         # subject - person ID
         subject <- read.table(file=paste0(data_dir, type, "/subject_", type, ".txt"), sep="\n", quote="", comment.char="", col.names = "SubjectID")
