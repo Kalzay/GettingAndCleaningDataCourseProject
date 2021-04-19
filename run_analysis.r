@@ -1,20 +1,22 @@
+# Loading packages
 library(readr)
 library(dplyr)
 library(tidyr)
 
+# Setting the data dictionary
 data_dir <- "./UCI HAR Dataset/"
 
-# Activity Labels
+## Activity Labels
 activity_labels <- read.table(file=paste0(data_dir,"activity_labels.txt"), sep="\n", quote="", comment.char="")
 # Separating into a Number and corresponding Activity column - to be used in joining later on
 activity_labels <- separate(activity_labels, c("V1"), into = c("Number", "Activity"), sep = " ")
 
-# features
+## features
 features <- scan(file=paste0(data_dir,"features.txt"), character(), sep = "\n" )
 
 ## function that creates a tidy data set for both the train and test datasets
 create_data_set <- function(type){
-        # subject - person ID
+        # subject - Identify each test subject
         subject <- read.table(file=paste0(data_dir, type, "/subject_", type, ".txt"), sep="\n", quote="", comment.char="", col.names = "SubjectID")
         
         # X data
