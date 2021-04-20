@@ -27,6 +27,10 @@ Exert from Course Project Page
 > 
 > Good luck!
 
+# Reading the tidy dataset
+
+The tidy dataset .csv file created by this script can be read into R using `read.csv("tidy_data.csv")`.
+
 # Code Explanation
 
 For this project we use three packages:  
