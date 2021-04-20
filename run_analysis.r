@@ -24,7 +24,7 @@ create_data_set <- function(type){
         # Separating data into columns. Throwaway is a column of " " (spaces). Immediately dropped
         X_temp1 <- separate(X_data, c("V1"), into = c("throwaway", features), sep = " +")[ ,-1]
         # Choose columns that include mean or std
-        X_temp2 <- X_temp1[, grepl("mean|std", names(X_temp1))]
+        X_temp2 <- X_temp1[, grepl("[Mm]ean|[Ss]td", names(X_temp1))]
         # Remove numeric prefixes from column names
         names(X_temp2) <- gsub("^[0-9]+ ", "", names(X_temp2))
         # Formatting all columns to be numeric
