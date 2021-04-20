@@ -44,6 +44,17 @@ We load them to the library as follows.
    library(tidyr)
 ```
 
+We want to download the data if it does not already exist.
+
+```R
+# Download data
+fileurl = 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
+if (!file.exists('./UCI HAR Dataset.zip')){
+download.file(fileurl,'./UCI HAR Dataset.zip', mode = 'wb')
+unzip("UCI HAR Dataset.zip", exdir = getwd())
+}
+```
+
 In my project I have stored the downloaded data in the "UCI HAR Dataset" folder, therefore, we set the data directory, `data_dir` to be this.
 ```R 
 data_dir <- "./UCI HAR Dataset/"
